@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frases Positivas</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous">
+    function compartirFacebook() {
+      const frase = document.getElementById("frase").textContent;
+      const url = `https://www.facebook.com/sharer/sharer.php?u=&quote=${encodeURIComponent(frase)}`;
+      window.open(url, '_blank');
+    }
+    
+    function copiarFrase() {
+      const frase = document.getElementById("frase").textContent;
+      navigator.clipboard.writeText(frase)
+        .then(() => alert("Frase copiada al portapapeles"))
+        .catch(() => alert("Error al copiar la frase"));
+    }
+    </script>
+    
+    
+  <style>
+    :root {
+      --primary: #00BFA6;
+      --bg: #f9f9f9;
+      --text-dark: #222;
+      --text-light: #666;
+      --card-bg: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+
+    .frase-container {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .frase-text {
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      min-height: 3rem;
+    }
+
+    .botones {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .boton-nueva {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .boton-nueva:hover {
+      background-color: #00a890;
+    }
+
+    .boton-compartir {
+      background-color: #3b5998;
+      color: white;
+    }
+
+    .boton-compartir:hover {
+      background-color: #2d4373;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .frase-text {
+        font-size: 1.2rem;
+      }
+
+      .frase-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Frases Positivas Logo" style="max-width: 150px; margin-bottom: 1rem;">
+<h1>Frases Positivas</h1>
+    <p>Inspírate con una frase cada vez que lo necesites</p>
+  </header>
+
+  <main class="frase-container">
+    <div class="frase-text" id="frase">Haz de cada día tu obra maestra.</div>
+    <div class="botones">
+      <button class="boton-compartir" onclick="copiarFrase()"><i class="fas fa-copy"></i> Copiar</button>
+      <button class="boton-compartir" onclick="compartirFacebook()"><i class="fab fa-facebook-f"></i> Facebook</button>
+      <button class="boton-nueva" onclick="mostrarFrase()"><i class="fas fa-sync-alt"></i> Nueva Frase</button>
+      <button class="boton-compartir" onclick="compartirFrase()"><i class="fas fa-share-alt"></i> Compartir</button>
+    </div>
+  </main>
+
+  <script>
+    const frases = [
+      "Haz de cada día tu obra maestra.",
+      "La actitud lo es todo.",
+      "Cree en ti y todo será posible.",
+      "Hoy es un gran día para empezar algo nuevo.",
+      "Sonríe, el universo te está mirando.",
+      "El éxito es la suma de pequeños esfuerzos repetidos cada día.",
+      "Tú puedes con esto y más.",
+      "No tengas miedo de ser diferente.",
+      "Todo lo que necesitas está dentro de ti.",
+      "Sé el cambio que quieres ver en el mundo.",
+      "Lo mejor está por venir.",
+      "Agradece, respira y sigue adelante.",
+      "Tu mente es poderosa. Úsala bien.",
+      "Cada momento es una nueva oportunidad.",
+      "Hoy eliges ser feliz.",
+      "Confía en el proceso.",
+      "Sigue tu intuición, sabe más de lo que crees.",
+      "Ama sin medida, vive sin miedo."
+    ];
+
+    function mostrarFrase() {
+      const random = Math.floor(Math.random() * frases.length);
+      document.getElementById("frase").textContent = frases[random];
+    }
+
+    function compartirFrase() {
+      const frase = document.getElementById("frase").textContent;
+      const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(frase)}%20%23FrasesPositivas`;
+      window.open(url, '_blank');
+    }
+  
+    function compartirFacebook() {
+      const frase = document.getElementById("frase").textContent;
+      const url = `https://www.facebook.com/sharer/sharer.php?u=&quote=${encodeURIComponent(frase)}`;
+      window.open(url, '_blank');
+    }
+    
+    function copiarFrase() {
+      const frase = document.getElementById("frase").textContent;
+      navigator.clipboard.writeText(frase)
+        .then(() => alert("Frase copiada al portapapeles"))
+        .catch(() => alert("Error al copiar la frase"));
+    }
+    </script>
+    
+    
+
+</body>
+</html>
